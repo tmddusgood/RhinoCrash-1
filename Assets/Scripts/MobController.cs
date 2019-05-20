@@ -7,7 +7,7 @@ public class MobController : MonoBehaviour {
     GameObject player;
     Vector3 downVector;
     public int line;
-    float speed;
+    public static float speed;
 	// Use this for initialization
 	void Start () {
         this.player = GameObject.Find("player"); //player 오브젝트 찾아서 객체로 추가

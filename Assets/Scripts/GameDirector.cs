@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class GameDirector : MonoBehaviour {
 
-    GameObject hpGage; 
+    GameObject hpGauge; 
 	// Use this for initialization
 	void Start () {
-        this.hpGage = GameObject.Find("hpGage");
+        this.hpGauge = GameObject.Find("hpGauge");
 	}
 	
 	public void DecreaseHp()
     {
-        this.hpGage.GetComponent<Image>().fillAmount -= 0.1f;
+        this.hpGauge.GetComponent<Image>().fillAmount -= 0.1f;
+        Debug.Log("collision detected");
     }
 }
