@@ -51,8 +51,7 @@ public class ComboGenerator : MonoBehaviour
     public void GenerateCombo(int num)
     {
         arrowList.Clear();
-        System.Random rand = new System.Random();
-        int randNum = rand.Next();
+        int randNum = mobGenerator.rand.Next();
         float xpos = -10f;
         for (int i = 0; i < num; i++)
         {
