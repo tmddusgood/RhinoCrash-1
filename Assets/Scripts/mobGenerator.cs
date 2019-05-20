@@ -23,20 +23,20 @@ public class mobGenerator : MonoBehaviour {
             switch (tmp)
             {
                 case 0:
-                    px = -1.4f;
+                    px = -1.3f;
                     break;
                 case 1:
-                    px = -0.7f;
+                    px = -0.4f;
                     break;
                 case 2:
-                    px = -0.1f;
+                    px = 0.4f;
                     break;
                 case 3:
-                    px = 0.5f;
+                    px = 1.3f;
                     break;
             }
             mobPrefab.transform.localScale = new Vector3(0.3f, 0.3f, 0);
-            go.transform.position = new Vector3(px, 3, 0);
+            go.transform.position = new Vector3(px, 4.5f, 0);
         }
 	}
 }

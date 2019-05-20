@@ -11,13 +11,13 @@ public class MobController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         this.player = GameObject.Find("player"); //player 오브젝트 찾아서 객체로 추가
-        this.downVector = new Vector3(0.02f, 0.02f, 0);
+        this.downVector = new Vector3(0.03f, 0.03f, 0);
         speed = -0.03f;
-        if (transform.position.x == -1.4f)
+        if (transform.position.x == -1.3f)
             line = 1;
-        else if (transform.position.x == -0.7f)
+        else if (transform.position.x == -0.4f)
             line = 2;
-        else if (transform.position.x == -0.1f)
+        else if (transform.position.x == 0.4f)
             line = 3;
         else
             line = 4;
@@ -26,20 +26,20 @@ public class MobController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //프레임마다 등속으로 낙하시킴
-        speed -= Time.deltaTime / 20;
+        speed -= Time.deltaTime / 2;
         switch (line)
         {
             case 1:
-                transform.Translate(-0.085f, speed, 0);
+                transform.Translate(0.7f * speed, speed, 0);
                 break;
             case 2:
-                transform.Translate(-0.02f, speed, 0);
+                transform.Translate(0.2f * speed, speed, 0);
                 break;
             case 3:
-                transform.Translate(0.015f, speed, 0);
+                transform.Translate(-0.2f * speed, speed, 0);
                 break;
             case 4:
-                transform.Translate(0.077f, speed, 0);
+                transform.Translate(-0.7f * speed, speed, 0);
                 break;
         }
         transform.localScale += downVector;
@@ -47,7 +47,7 @@ public class MobController : MonoBehaviour {
 
 
         //화면 밖으로 나갈 시 오브젝트 소멸
-        if (transform.position.y < -1f)
+        if (transform.position.y < -3.5f)
             Destroy(gameObject);
 
         //충돌 판정

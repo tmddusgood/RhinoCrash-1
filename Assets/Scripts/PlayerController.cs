@@ -17,10 +17,10 @@ public class PlayerController : MonoBehaviour {
         line = 0;
         rend = GetComponent<Renderer>();
         linepos = new Vector3[4];
-        linepos[0] = new Vector3(-8.45f, -1.54f, 0);
-        linepos[1] = new Vector3(-3.2f, -1.54f, 0);
-        linepos[2] = new Vector3(1.7f, -1.54f, 0);
-        linepos[3] = new Vector3(6.7f, -1.54f, 0);
+        linepos[0] = new Vector3(-7.3f, -2.94f, 0);
+        linepos[1] = new Vector3(-2.1f, -2.94f, 0);
+        linepos[2] = new Vector3(2.1f, -2.94f, 0);
+        linepos[3] = new Vector3(7.3f, -2.94f, 0);
         translucent = new Color(rend.material.color.r, rend.material.color.g, rend.material.color.b, 0.5f);
         nonTransparent = new Color(rend.material.color.r, rend.material.color.g, rend.material.color.b, 1f);
     }
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
                 line++;
             transform.position = linepos[line];
         }
-        else
-            rend.material.color = translucent;
+        //else
+        //    rend.material.color = translucent;
     }
 }

@@ -53,11 +53,11 @@ public class ComboGenerator : MonoBehaviour
         arrowList.Clear();
         System.Random rand = new System.Random();
         int randNum = rand.Next();
-        float xpos = -10.5f;
+        float xpos = -10f;
         for (int i = 0; i < num; i++)
         {
             GameObject arrow = Instantiate(Resources.Load("Prefab/LeftPrefab")) as GameObject;
-            arrow.transform.position = new Vector3(xpos, 3.5f, -2f);
+            arrow.transform.position = new Vector3(xpos, 4.3f, -2f);
             if (randNum % 2 == 0)
             {
                 arrow.transform.localScale = new Vector3(0.5f, 0.5f, 0);
