@@ -50,6 +50,13 @@ public class PlayerController : MonoBehaviour {
                 line--;
             else if (Input.GetKeyDown(KeyCode.RightArrow) && line < 3)
                 line++;
+            else if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                GameObject skill = GameObject.Find("SkillController");
+                skill.GetComponent<SkillController>().Skill();
+                GameObject item = GameObject.Find("ItemController");
+                item.GetComponent<ItemController>().Item();
+            }
             transform.position = linepos[line];
         }
         //else
