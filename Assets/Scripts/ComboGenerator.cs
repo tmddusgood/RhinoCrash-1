@@ -9,10 +9,14 @@ public class ComboGenerator : MonoBehaviour
     public bool stop = false;
     public int order = 0;
 
+    public static float Count = 0;
     private void Update()
     {
         if (stop)
         {
+            //for count how long does it complete combo
+            Count += Time.deltaTime;
+
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 if (arrowList[order].transform.localScale.x == 0.5f)
