@@ -43,6 +43,14 @@ public class ComboGenerator : MonoBehaviour
                 arrowList.Clear();
                 stop = false;
                 PlayerController.canMove = true;
+                if (ItemController.itemcount < 3)
+                {
+                    ItemController.itemcount += 1;
+
+                }
+                GameObject item = GameObject.Find("ItemController");
+                item.GetComponent<ItemController>().Item();
+                PlayerController.canMove = true;
                 order = 0;
             }
         }
