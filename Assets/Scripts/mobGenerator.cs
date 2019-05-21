@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class mobGenerator : MonoBehaviour {
 
@@ -38,5 +39,15 @@ public class mobGenerator : MonoBehaviour {
             mobPrefab.transform.localScale = new Vector3(0.3f, 0.3f, 0);
             go.transform.position = new Vector3(px, 4.5f, 0);
         }
-	}
+        if (count > 10)      
+        {
+            SceneManager.LoadScene("StageScene");
+            count = 0;
+            GameObject director = GameObject.Find("GameDirector");
+            
+
+
+
+        }
+    }
 }
