@@ -17,6 +17,6 @@ public class ComboScore : MonoBehaviour
     void Update()
     {
         //To show how long does it take
-        t.text = "Score : " + ComboGenerator.Count;
+        t.text = "Score : " + PlayerController.score;
     }
 }

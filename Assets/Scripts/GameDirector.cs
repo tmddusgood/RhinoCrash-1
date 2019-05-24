@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class GameDirector : MonoBehaviour {
 
-    GameObject hpGauge; 
-	// Use this for initialization
-	void Start () {
+    GameObject hpGauge;
+    public static int stage = 0;
+    public static System.Random rand = new System.Random();
+    // Use this for initialization
+    void Start () {
         this.hpGauge = GameObject.Find("hpGauge");
+        stage++;
+        Debug.Log(stage.ToString());
 	}
 	
 	public void DecreaseHp()

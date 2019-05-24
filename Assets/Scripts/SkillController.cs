@@ -10,10 +10,8 @@ public class SkillController : MonoBehaviour
     {
         if (ItemController.itemcount > 0)
         {
-
             skillOn = true;
             ItemController.itemcount -= 1;
-
         }
     }
 }

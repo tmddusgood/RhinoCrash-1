@@ -7,7 +7,7 @@ public class ItemController : MonoBehaviour
     List<GameObject> ItemList = new List<GameObject>();
     public static int itemcount = 0;
 
-    public void Item()
+    private void Start()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -18,11 +18,12 @@ public class ItemController : MonoBehaviour
             ItemList[i].SetActive(false);
             //ItemList[i].SetActive(true);
         }
+        Item();
+    }
 
+    public void Item()
+    {
         for (int j = 0; j < itemcount; j++)
-        {
             ItemList[j].SetActive(true);
-        }
-
     }
 }
