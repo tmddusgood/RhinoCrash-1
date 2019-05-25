@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MobController : MonoBehaviour {
-
     GameObject player;
     Vector3 downVector;
     public int line;
-    public static float speed;
+    float speed;
 	// Use this for initialization
 	void Start () {
         this.player = GameObject.Find("player"); //player 오브젝트 찾아서 객체로 추가
         this.downVector = new Vector3(0.03f, 0.03f, 0);
-        speed = GameDirector.stage == 1 ? 0.02f : -0.04f;
+        speed = GameDirector.stage == 1 ? -0.02f : -0.04f;
         if (transform.position.x == -1.3f)
             line = 1;
         else if (transform.position.x == -0.4f)
@@ -48,7 +47,7 @@ public class MobController : MonoBehaviour {
 
         //화면 밖으로 나갈 시 오브젝트 소멸
         if (transform.position.y < -3.5f)
-            Destroy(gameObject);
+            gameObject.SetActive(false);
 
         //충돌 판정
         Vector2 p1 = transform.position; //화살 중심 좌표
@@ -61,7 +60,7 @@ public class MobController : MonoBehaviour {
         if(d<r1+r2)
         {
             //충돌시 몹을 소멸시킨다.
-            Destroy(gameObject);
+            gameObject.SetActive(false);
 
             //감독 스크립트에 플레이어와 몹이 충돌했다고 전달
             GameObject director = GameObject.Find("GameDirector");

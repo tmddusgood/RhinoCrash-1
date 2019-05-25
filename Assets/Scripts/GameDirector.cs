@@ -12,7 +12,7 @@ public class GameDirector : MonoBehaviour {
     void Start () {
         this.hpGauge = GameObject.Find("hpGauge");
         stage++;
-        Debug.Log(stage.ToString());
+        Debug.Log(stage.ToString() + "Stage start");
 	}
 	
 	public void DecreaseHp()

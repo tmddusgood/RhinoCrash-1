@@ -23,7 +23,7 @@ public class ComboGenerator : MonoBehaviour
                     arrowList[order++].transform.GetComponent<Renderer>().material.color = Color.red;
                 else
                 {
-                    for (int i = 0; i < arrowList.Capacity; i++)
+                    for (int i = 0; i < arrowList.Count; i++)
                         arrowList[i].transform.GetComponent<Renderer>().material.color = Color.white;
                     order = 0;
                 }
@@ -34,7 +34,7 @@ public class ComboGenerator : MonoBehaviour
                     arrowList[order++].transform.GetComponent<Renderer>().material.color = Color.red;
                 else
                 {
-                    for (int i = 0; i < arrowList.Capacity; i++)
+                    for (int i = 0; i < arrowList.Count; i++)
                         arrowList[i].transform.GetComponent<Renderer>().material.color = Color.white;
                     order = 0;
                 }

@@ -3,4 +3,4 @@ Unity Game Team Project of the "Application Software Practice" Class of Kwangwoo
 
 TODO
 ----
-When updating to version 0.3.1, we must solve optimizing issue when SetActive().
+We need to fix the bugs that appears once we use all object of matrix
