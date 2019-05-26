@@ -20,6 +20,7 @@ public class MobController : MonoBehaviour {
             line = 3;
         else
             line = 4;
+        Debug.Log("pool = " + transform.position.x.ToString());
     }
 	
 	// Update is called once per frame
@@ -47,7 +48,7 @@ public class MobController : MonoBehaviour {
 
         //화면 밖으로 나갈 시 오브젝트 소멸
         if (transform.position.y < -3.5f)
-            gameObject.SetActive(false);
+            Destroy(gameObject);
 
         //충돌 판정
         Vector2 p1 = transform.position; //화살 중심 좌표
@@ -60,7 +61,7 @@ public class MobController : MonoBehaviour {
         if(d<r1+r2)
         {
             //충돌시 몹을 소멸시킨다.
-            gameObject.SetActive(false);
+            Destroy(gameObject);
 
             //감독 스크립트에 플레이어와 몹이 충돌했다고 전달
             GameObject director = GameObject.Find("GameDirector");

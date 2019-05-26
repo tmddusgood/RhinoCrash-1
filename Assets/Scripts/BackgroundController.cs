@@ -36,6 +36,6 @@ public class BackgroundController : MonoBehaviour
 
         //화면 밖으로 나갈 시 오브젝트 소멸
         if (transform.position.y < -5f)
-            gameObject.SetActive(false);
+            Destroy(gameObject);
     }
 }
