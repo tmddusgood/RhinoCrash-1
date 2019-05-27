@@ -7,6 +7,7 @@ public class MobController : MonoBehaviour {
     Vector3 downVector;
     public int line;
     float speed;
+
 	// Use this for initialization
 	void Start () {
         this.player = GameObject.Find("player"); //player 오브젝트 찾아서 객체로 추가
@@ -62,10 +63,17 @@ public class MobController : MonoBehaviour {
         {
             //충돌시 몹을 소멸시킨다.
             Destroy(gameObject);
+            
 
             //감독 스크립트에 플레이어와 몹이 충돌했다고 전달
             GameObject director = GameObject.Find("GameDirector");
             director.GetComponent<GameDirector>().DecreaseHp();
         }
-	}
+
+        if (GameDirector.HP <= 0)
+        {
+            GameObject director = GameObject.Find("GameDirector");
+            director.GetComponent<GameDirector>().Dead();
+        }
+    }
 }
