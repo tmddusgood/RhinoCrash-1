@@ -92,3 +92,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d667f1a93e9dfd4684a0a116b55a8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolItemName: Mob
+  line: 0
