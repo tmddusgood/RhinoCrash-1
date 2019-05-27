@@ -19,7 +19,7 @@ public class mobGenerator : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //프레임의 증가에 따라 delta가 증가하면서 spqwn에 도달시 새로운 몹 생성
+        //프레임의 증가에 따라 delta가 증가하면서 spawn에 도달시 새로운 몹 생성
         this.delta += Time.deltaTime;
         if (count <= (GameDirector.stage == 1 ? 70 : 300) && this.delta > this.spawn)
         {
@@ -40,7 +40,7 @@ public class mobGenerator : MonoBehaviour {
             BossPrefab.transform.position = new Vector3(px, 4.5f, 0);
         }
 
-        if (count > (GameDirector.stage == 1 ? 100 : 350))
+        if (count > (GameDirector.stage == 1 ? 70 : 350))
         {
             SceneManager.LoadScene("StageScene");
             count = 0;

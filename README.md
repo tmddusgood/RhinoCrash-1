@@ -3,4 +3,4 @@ Unity Game Team Project of the "Application Software Practice" Class of Kwangwoo
 
 TODO
 ----
-Boss, dead, item, skill
+Item, skill, hp
