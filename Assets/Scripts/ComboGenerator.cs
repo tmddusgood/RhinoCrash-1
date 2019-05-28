@@ -6,6 +6,7 @@ using UnityEngine;
 public class ComboGenerator : MonoBehaviour
 {
     public List<GameObject> arrowList;
+    
     public bool stop = false;
     public int order = 0;
 
@@ -14,6 +15,9 @@ public class ComboGenerator : MonoBehaviour
     {
         if (stop)
         {
+            //reset player color
+            GameObject.Find("GameDirector").GetComponent<GameDirector>().playerRhino.transform.GetComponent<Renderer>().material.color = new Color32(255, 255, 255, 180);
+            
             //for count how long does it complete combo
             Count += Time.deltaTime;
 
@@ -49,10 +53,22 @@ public class ComboGenerator : MonoBehaviour
                 arrowList.Clear();
                 stop = false;
                 PlayerController.canMove = true;
-                if (ItemController.itemcount < 3)
-                    ItemController.itemcount += 1;
-                GameObject item = GameObject.Find("ItemController");
-                item.GetComponent<ItemController>().Item();
+                if (ComboGenerator.Count < 3)
+                {
+                    if (ItemController.itemcount < 3)
+                    {
+                        ItemController.itemcount += 1;
+                    }
+                    GameObject item = GameObject.Find("ItemController");
+                    item.GetComponent<ItemController>().Item();
+                }
+
+                if (HealingController.healingcount < 5)
+                {
+                    HealingController.healingcount += 1;
+                    GameObject healing = GameObject.Find("HealingController");
+                    healing.GetComponent<HealingController>().Healing();
+                }
                 PlayerController.canMove = true;
                 order = 0;
             }
