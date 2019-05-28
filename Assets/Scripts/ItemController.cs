@@ -23,6 +23,10 @@ public class ItemController : MonoBehaviour
 
     public void Item()
     {
+        for( int i = 0; i < 3; i++)
+        {
+            ItemList[i].SetActive(false);
+        }
         for (int j = 0; j < itemcount; j++)
             ItemList[j].SetActive(true);
     }

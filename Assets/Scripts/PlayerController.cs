@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
     private int line;
     public static float score = 0;
     public static bool canMove = true;
+    public static float currentTm = 0;
+    public static float tempTm = 0;
     bool pastStatus = true;
     bool isChangedNow = false;
     Vector3[] linepos;
@@ -24,10 +26,25 @@ public class PlayerController : MonoBehaviour {
         linepos[3] = new Vector3(7.3f, -2.94f, 0);
         translucent = new Color(rend.material.color.r, rend.material.color.g, rend.material.color.b, 0.5f);
         nonTransparent = new Color(rend.material.color.r, rend.material.color.g, rend.material.color.b, 1f);
+
+
     }
 	
 	// Update is called once per frame
 	void Update () {
+        //시간을 재는데 이건 플레이어가 필살기를 쓰는 경우 이 시간을 이용해서 필살기 시간을 조정하기 위함
+        currentTm += Time.deltaTime;
+        //Debug.Log("asdfsdafsdaf" + currentTm);
+        if(currentTm - tempTm > 3) // 플레이어가 필살기를 쓰는 시간이 이 시간만큼 경과한다면 다시 skillOn 상태를 false로 바꿔서 플레이어 hp가 떨어지게 함
+        {
+            SkillController.skillOn = false;
+        }
+
+        //rend.material.color = translucent;
+
+        //GameObject rhino = GameObject.Find("player");
+        //rhino.GetComponent<Renderer>().material.color = new Color32(255, 255, 255, 255);
+
         isChangedNow = false;
         if(pastStatus != canMove)
         {
@@ -62,21 +79,74 @@ public class PlayerController : MonoBehaviour {
 
         if (canMove && !isChangedNow)
         {
-            rend.material.color = nonTransparent;
+            if(SkillController.skillOn)
+            {
+                rend.material.color = translucent;
+            }
+            else
+            {
+                rend.material.color = nonTransparent;
+            }
+ 
             if (Input.GetKeyDown(KeyCode.LeftArrow) && line > 0)
                 line--;
             else if (Input.GetKeyDown(KeyCode.RightArrow) && line < 3)
                 line++;
             else if (Input.GetKeyDown(KeyCode.LeftControl))
             {
-                GameObject skill = GameObject.Find("SkillController");
-                skill.GetComponent<SkillController>().Skill();
-                GameObject item = GameObject.Find("ItemController");
-                item.GetComponent<ItemController>().Item();
+                if (ItemController.itemcount == 0 || ItemController.itemcount > 3)
+                {
+                    return;
+                }
+                else
+                {
+                    tempTm = currentTm;
+                    GameObject skill = GameObject.Find("SkillController");
+                    skill.GetComponent<SkillController>().Skill();
+                    SkillController.skillOn = true;
+                    Debug.Log("sdfasdfsdaf");
+                    //skill.GetComponent<SkillController>().Invincible();
+                    GameObject item = GameObject.Find("ItemController");
+                    item.GetComponent<ItemController>().Item();
+                }
+                
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftAlt))
+            {
+                if (HealingController.healingcount == 0 || HealingController.healingcount > 5)
+                {
+                    return;
+                }
+                else
+                {
+                    //HealingController.healingcount -= 1;
+                    //HealingController.i -= 1;
+                    //HealingController.healingcount -= 1; //하나 줄여주고
+                    //Destroy(GameObject.Find("HealingController").GetComponent<HealingController>().HealingList[HealingController.healingcount]);
+
+                    
+                    //GameObject.Find("HealingController").GetComponent<HealingController>().HealingList[HealingController.healingcount].SetActive(false);
+                    //Destroy(GameObject.Find("HealingController").GetComponent<HealingController>().HealingList[HealingController.healingcount]);
+
+                    GameObject skill = GameObject.Find("SkillController");
+                    skill.GetComponent<SkillController>().Skillhealing();
+                    GameObject healing = GameObject.Find("HealingController");
+                    healing.GetComponent<HealingController>().Healing();
+                    //healing.GetComponent<HealingController>().Reset();
+                    GameObject increasehp = GameObject.Find("GameDirector");
+                    increasehp.GetComponent<GameDirector>().IncreaseHp();
+
+
+                    //GameObject.Find("HealingController").GetComponent<HealingController>().HealingList[HealingController.healingcount].SetActive(true);
+                }
             }
             transform.position = linepos[line];
         }
+
+
         //else
         //    rend.material.color = translucent;
     }
+
+    
 }
