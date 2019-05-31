@@ -40,12 +40,18 @@ public class mobGenerator : MonoBehaviour {
             BossPrefab.transform.position = new Vector3(px, 4.5f, 0);
         }
 
-        if (count > (GameDirector.stage == 1 ? 70 : 350))
+        if (GameDirector.stage == 1 && count > 70)
         {
             SceneManager.LoadScene("StageScene");
             count = 0;
             GameDirector.HP = 10;
             //GameObject director = GameObject.Find("GameDirector");
+        }
+
+        if (GameDirector.stage == 2 && count > 350)
+        {
+            SceneManager.LoadScene("EndingScene");
+            
         }
     }
 }
