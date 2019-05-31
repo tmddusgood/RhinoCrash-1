@@ -13,29 +13,4 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene("StartScene");
     }
-
-    public void EndingScene_Exit()
-    {
-        SceneManager.LoadScene("StartScene");
-    }
-
-    public void EndingScene_Ranking_Registration()
-    {
-        SceneManager.LoadScene("RankingRegistrationScene");
-    }
-
-    public void RankingRegistrationScene_Exit()
-    {
-        SceneManager.LoadScene("StartScene");
-    }
-
-    public void RankingRegistrationScene_Registration()
-    {
-        SceneManager.LoadScene("StartScene");
-    }
-
-    public void RankingScene()
-    {
-        SceneManager.LoadScene("RankingScene");
-    }
 }

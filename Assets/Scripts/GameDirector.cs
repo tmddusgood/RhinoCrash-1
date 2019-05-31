@@ -44,7 +44,7 @@ public class GameDirector : MonoBehaviour {
         changeColor();
         this.hpGauge.GetComponent<Image>().fillAmount -= 0.1f;
         this.skillGauge.GetComponent<Image>().fillAmount += 0.125f;
-        //GameDirector.HP--;
+        GameDirector.HP--;
 
         if (skill < 8)
         {

@@ -3,4 +3,4 @@ Unity Game Team Project of the "Application Software Practice" Class of Kwangwoo
 
 TODO
 ----
-Ranking, control difficulty
+Item, skill, hp

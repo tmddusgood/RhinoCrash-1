@@ -13,6 +13,7 @@ public class SkillController : MonoBehaviour
         {
             skillOn = true;
             ItemController.itemcount -= 1;
+
         }
     }
 

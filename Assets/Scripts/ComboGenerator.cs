@@ -11,6 +11,7 @@ public class ComboGenerator : MonoBehaviour
     public int order = 0;
 
     public static float Count = 0;
+    
     private void Update()
     {
         if (stop)
