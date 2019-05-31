@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour {
         //시간을 재는데 이건 플레이어가 필살기를 쓰는 경우 이 시간을 이용해서 필살기 시간을 조정하기 위함
         currentTm += Time.deltaTime;
         //Debug.Log("asdfsdafsdaf" + currentTm);
+        //애초에 skillOn은 false 이기 때문에 아래 if문에 들어가도 문제가 없다
         if(currentTm - tempTm > 3) // 플레이어가 필살기를 쓰는 시간이 이 시간만큼 경과한다면 다시 skillOn 상태를 false로 바꿔서 플레이어 hp가 떨어지게 함
         {
             SkillController.skillOn = false;
