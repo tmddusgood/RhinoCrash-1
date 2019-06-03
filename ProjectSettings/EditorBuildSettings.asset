@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DeadScene.unity
     guid: a42b013b3f6be2249b594c49ca22af63
+  - enabled: 1
+    path: Assets/EndingScene.unity
+    guid: 659561d9e99bbe8449af7bf7a338b991
+  - enabled: 1
+    path: Assets/RankingScene.unity
+    guid: a511206116daae64b81b6be3635f7dd0
+  - enabled: 1
+    path: Assets/RankingRegistrationScene.unity
+    guid: 207025f250c04fa4abcdb42af42301cc
   m_configObjects: {}
